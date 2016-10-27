@@ -1,0 +1,23 @@
+{
+  "extends": "google",
+  "env": {
+    "browser": true,
+    "es6": fales,
+    "mocha": true
+  },
+  "rules": {
+    "require-jsdoc": [0],
+    "valid-jsdoc": [0],
+    "max-len": [0],
+    "max-nested-callbacks": [0]
+  },
+  "globals": {
+    "$"         : true,
+    "angular"   : true,
+    "ga"        : true,
+    "sinon"     : true,
+    "expect"    : true,
+    "module"    : true,
+    "inject"    : true
+  }
+}

@@ -32,8 +32,5 @@
     "node": ">=0.12"
   },
   "private": true,
-  "scripts": {},
-  "eslintConfig": {
-    "extends": "google"
-  }
+  "scripts": {}
 }
