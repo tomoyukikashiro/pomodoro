@@ -71,23 +71,4 @@
       console.error('Error during service worker registration:', e);
     });
   }
-
-  // Your custom JavaScript goes here
-  angular.module('pomodoro', [
-    'ngRoute',
-    'ngResource',
-    'ngMaterial'
-  ]).config(appRouter);
-
-  appRouter.$inject = ['$routeProvider', '$locationProvider'];
-
-  function appRouter($routeProvider, $locationProvider) {
-    $locationProvider.html5Mode(true);
-    $routeProvider
-      .when('/', {
-        templateUrl: '/templates/index.html',
-        controller: 'MainController',
-        controllerAs: 'mainCtrl'
-      });
-  }
 })();

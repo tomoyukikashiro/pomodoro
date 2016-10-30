@@ -3,7 +3,7 @@
   "env": {
     "browser": true,
     "es6": fales,
-    "mocha": true
+    "jasmine": true
   },
   "rules": {
     "require-jsdoc": [0],

@@ -22,9 +22,12 @@ module.exports = function(config) {
       'node_modules/angular-aria/angular-aria.js',
       'node_modules/angular-messages/angular-messages.js',
       'node_modules/angular-material/angular-material.js',
+      'node_modules/angular-mocks/angular-mocks.js',
 
-      'app/scripts/{!main.js, !**/*.spec.js, **/*.js}',
-      'app/scripts/main.js',
+      'app/scripts/common/module.js',
+      'app/scripts/common/{**/*, !module, !**/*.spec}.js',
+      'app/scripts/module.js',
+      'app/scripts/{**/*, !module, !**/*.spec}.js',
 
       'app/scripts/**/*.spec.js'
     ],
@@ -32,12 +35,15 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
+      'app/scripts/main.js',
+      'app/scripts/sw/*.js'
     ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'app/scripts/**/*.js': ['ng-annotate']
     },
 
 
@@ -57,7 +63,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // enable / disable watching file and executing tests whenever any file changes
@@ -75,6 +81,6 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: 1
   })
 }
