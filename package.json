@@ -30,8 +30,10 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.0.2",
     "karma-ng-annotate-preprocessor": "0.0.1",
+    "karma-sinon": "^1.0.5",
     "psi": "^2.0.2",
     "run-sequence": "^1.0.1",
+    "sinon": "^1.17.6",
     "sw-precache": "^3.2.0",
     "sw-toolbox": "^3.0.1"
   },
