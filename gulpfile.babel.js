@@ -56,13 +56,13 @@ gulp.task('images', () =>
     .pipe($.size({title: 'images'}))
 );
 
-// Copy all files at the root level (app)
 gulp.task('copy', () =>
   gulp.src([
-    'app/*',
-    'app/templates/**/*.html',
+    'app/**/*',
     '!app/*.html',
-    'app/audio/*'
+    '!app/images/**/*',
+    '!app/scripts/**/*',
+    '!app/styles/**/*'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'))
@@ -157,7 +157,7 @@ gulp.task('html', () => {
 });
 
 // Clean output directory
-gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
+gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git', '!dist/index.php'], {dot: true}));
 
 // Watch files for changes & reload
 gulp.task('serve', ['scripts', 'styles'], () => {
