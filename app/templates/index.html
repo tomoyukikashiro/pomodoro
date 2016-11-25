@@ -1,18 +1,35 @@
-<div ng-click="mainCtrl.toggle()" style=" text-align: center;">
-  <div style="font-size: 80px;">
-    <span ng-bind="mainCtrl.clock.remaining.minutes | pad"></span>
-    <span>:</span>
-    <span ng-bind="mainCtrl.clock.remaining.seconds | pad"></span>
+<div style=" text-align: center;">
+  <div ng-click="mainCtrl.toggle()">
+    <div style="font-size: 80px;">
+      <span ng-bind="mainCtrl.clock.remaining.minutes | pad"></span>
+      <span>:</span>
+      <span ng-bind="mainCtrl.clock.remaining.seconds | pad"></span>
+    </div>
+
+    <ul style="list-style: none; padding-left: 0; margin-bottom: 35px;">
+      <li ng-show='!mainCtrl.clock.isCounting'>Tap to Start</li>
+      <li ng-show='mainCtrl.clock.isCounting'>Tap to Pause</li>
+    </ul>
   </div>
 
-  <ul style="list-style: none; padding-left: 0;">
-    <li ng-show='!mainCtrl.clock.isCounting'>Tap to Start</li>
-    <li ng-show='mainCtrl.clock.isCounting'>Tap to Pause</li>
-  </ul>
-
-  <div>
-    <button type="button" ng-click="mainCtrl.setTargetMins($event, 25)">25 mins</button>
-    <button type="button" ng-click="mainCtrl.setTargetMins($event, 5)">5 mins</button>
+  <div style="display: flex;">
+    <div style="display: flex; flex-direction: column;">
+      <p>WORK</p>
+      <div>
+        <button ng-click="mainCtrl.changeTargetMins(true, -1)">-</button>
+        <button type="button" ng-click="mainCtrl.setTargetMins(true, mainCtrl.settings.workMins)">{{ mainCtrl.settings.workMins }} mins</button>
+        <button ng-click="mainCtrl.changeTargetMins(true, 1)">+</button>
+      </div>
+    </div>
+    <div style="width: 30px;"></div>
+    <div style="display: flex; flex-direction: column;">
+      <p>REST</p>
+      <div>
+        <button ng-click="mainCtrl.changeTargetMins(false, -1)">-</button>
+        <button type="button" ng-click="mainCtrl.setTargetMins(false, mainCtrl.settings.restMins)">{{ mainCtrl.settings.restMins }} mins</button>
+        <button ng-click="mainCtrl.changeTargetMins(false, 1)">+</button>
+      </div>
+    </div>
   </div>
 </div>
 

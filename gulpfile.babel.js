@@ -112,6 +112,7 @@ gulp.task('scripts', () =>
       //       to be correctly concatenated
       './app/scripts/common/module.js',
       './app/scripts/common/services/timer.js',
+      './app/scripts/common/services/vibration.js',
       './app/scripts/common/services/audio.js',
       './app/scripts/common/filters/zero_padding.js',
       './app/scripts/module.js',
